@@ -1,22 +1,2 @@
-﻿var maxes = Enumerable.Repeat(0, 3).ToList();
-var runningSum = 0;
-foreach (var line in File.ReadLines("input.txt"))
-{
-  if (string.IsNullOrEmpty(line))
-  {
-    ReplaceMin(maxes, runningSum);
-    runningSum = 0;
-    continue;
-  }
-
-  runningSum += Convert.ToInt32(line);
-}
-
-ReplaceMin(maxes, runningSum);
-System.Console.WriteLine(maxes.Sum());
-
-static void ReplaceMin(List<int> maxes, int runningSum)
-{
-  var minIdx = maxes.IndexOf(maxes.Min());
-  maxes[minIdx] = Math.Max(runningSum, maxes[minIdx]);
-}
+﻿Part1.Solve();
+Part2.Solve();
